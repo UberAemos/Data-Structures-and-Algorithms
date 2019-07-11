@@ -66,4 +66,26 @@ public class TestCircularlyLinkedList {
 			() -> assertTrue(testList.toString().equals("{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}"), "10 should be at the end")
 		);
 	}
+	
+	@Test
+	public void zeroGoesToEndAfterRotate() {
+		testList.rotate();
+		assertAll(
+			() -> assertTrue(testList.size() == 10, "Size should not change"),
+			() -> assertTrue(testList.first() == 1, "1 should be the first"),
+			() -> assertTrue(testList.last() == 0, "0 should be at the end"),
+			() -> assertTrue(testList.toString().equals("{1, 2, 3, 4, 5, 6, 7, 8, 9, 0}"), "List should be shifted")
+		);
+	}
+	
+	@Test
+	public void removeFirstTakesOutFirstElement() {
+		assertAll(
+			() -> assertTrue(emptyList.removeFirst() == null, "Empty list remove should return null"),
+			() -> assertTrue(testList.removeFirst() == 0, "Test list removeFirst should return 0"),
+			() -> assertTrue(testList.first() == 1, "First element should be 1 after removal"),
+			() -> assertTrue(testList.size() == 9, "Size should be 9 after the removal"),
+			() -> assertTrue(testList.toString().equals("{1, 2, 3, 4, 5, 6, 7, 8, 9}"), "List should look like this after removal")
+		);
+	}
 }

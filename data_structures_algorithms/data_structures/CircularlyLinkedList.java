@@ -79,4 +79,19 @@ public class CircularlyLinkedList<E> {
 	public void rotate() {
 		if (tail != null) tail = tail.getNext();
 	}
+	
+	// Removes and returns the first element
+	public E removeFirst() {
+		E deleted;
+		if (isEmpty()) return null;
+		else if (size == 1) {
+			deleted = first();
+			tail = null;
+		} else {
+			deleted = first();
+			tail.setNext(tail.getNext().getNext());
+		}
+		size--;
+		return deleted;
+	}
 }
