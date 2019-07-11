@@ -56,7 +56,6 @@ public class TestSinglyLinkedList {
 	
 	@Test
 	public void shiftsTailAfterRemoveLast() {
-		System.out.println(testListOfTen);
 		assertTrue(testListOfTen.removeLast() == 9);
 		assertAll(() -> assertTrue(testListOfTen.last() == 8, "Last element should be 8"),
 				() -> assertTrue(testListOfTen.size() == 9, "Size should be 9"));
