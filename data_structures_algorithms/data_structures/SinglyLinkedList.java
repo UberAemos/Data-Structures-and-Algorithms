@@ -26,6 +26,37 @@ public class SinglyLinkedList<E> {
 		return tail.getElement();
 	}
 	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder("{");
+		if (!isEmpty()) {
+			Node current = head;
+			do {
+				builder.append(current.getElement());
+				if (current.getNext() != null) builder.append(", ");
+				current = current.getNext();
+			} while (current != null);
+		}
+		builder.append("}");
+		return builder.toString();
+	}
+	
+	// Checks if given list is equal to the current list
+	public boolean equals(Object o) {
+		if (o == null) return false;
+		if (getClass() != o.getClass()) return false;
+		SinglyLinkedList other = (SinglyLinkedList) o;
+		if (size != other.size()) return false;
+		Node walkA = head;
+		Node walkB = other.head;
+		while (walkA != null) {
+			if (!walkA.getElement().equals(walkB.getElement())) return false;
+			walkA = walkA.getNext();
+			walkB = walkB.getNext();
+		}
+		return true;
+	}
+	
 	/*
 	 * Update methods
 	 */
@@ -96,21 +127,6 @@ public class SinglyLinkedList<E> {
 				current = current.getNext();
 			}
 		}
-	}
-	
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder("{");
-		if (!isEmpty()) {
-			Node current = head;
-			do {
-				builder.append(current.getElement());
-				if (current.getNext() != null) builder.append(", ");
-				current = current.getNext();
-			} while (current != null);
-		}
-		builder.append("}");
-		return builder.toString();
 	}
 	
 	private static class Node<E> {

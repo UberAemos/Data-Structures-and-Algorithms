@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import org.junit.jupiter.api.Test;
 
@@ -83,5 +84,17 @@ public class TestSinglyLinkedList {
 		assertAll(() -> assertTrue(testListOfTen.size() == 15, "New list size should be 15"),
 				() -> assertTrue(testListOfTen.toString().equals("{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4}"), "Two lists are not added properly")
 			);
+	}
+	
+	@Test
+	public void equalsForDiffentListShouldReturnFalse() {
+		assertFalse(testListOfFive.equals(testListOfTen), "Two lists are not equal");
+	}
+	
+	@Test
+	public void equalsForTheSameListShouldReturnTrue() {
+		assertAll(() -> assertTrue(emptyList.equals(emptyList), "Two lists are equal"),
+			() -> assertTrue(testListOfFive.equals(testListOfFive), "Two lists are equal")
+		);
 	}
 }
