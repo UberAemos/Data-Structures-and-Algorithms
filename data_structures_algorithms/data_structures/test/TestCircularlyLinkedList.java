@@ -23,7 +23,7 @@ public class TestCircularlyLinkedList {
 	}
 	
 	@Test
-	public void listEmptyWithoutElementsAdded() {
+	public void list_Empty_Without_Elements_Added() {
 		assertAll("List should be empty", 
 			() -> assertTrue(emptyList.isEmpty()),
 			() -> assertTrue(emptyList.size() == 0),
@@ -32,7 +32,7 @@ public class TestCircularlyLinkedList {
 	}
 	
 	@Test
-	public void addFirstToEmptyListMakesTailAndHeadSame() {
+	public void add_First_To_Empty_List_Makes_Tail_And_Head_Same() {
 		emptyList.addLast(0);
 		assertAll(() -> assertTrue(emptyList.size() == 1, "Size should be 1 after addition"),
 			() -> assertTrue(emptyList.first() == 0 && emptyList.last() == 0, "Both tail and head should be 0"),
@@ -41,7 +41,7 @@ public class TestCircularlyLinkedList {
 	}
 	
 	@Test
-	public void addLastToEmptyListMakesTailAndHeadSame() {
+	public void add_Last_To_Empty_List_Makes_Tail_And_Head_Same() {
 		emptyList.addLast(0);
 		assertAll(() -> assertTrue(emptyList.size() == 1, "Size should be 1 after addition"),
 			() -> assertTrue(emptyList.first() == 0 && emptyList.last() == 0, "Both tail and head should be 0"),
@@ -50,7 +50,7 @@ public class TestCircularlyLinkedList {
 	}
 	
 	@Test
-	public void addFirstShiftsList() {
+	public void add_First_Shifts_List() {
 		testList.addFirst(-1);
 		assertAll(() -> assertTrue(testList.size() == 11, "Size should be 11 after addition"),
 			() -> assertTrue(testList.first() == -1, "First element should be -1"),
@@ -59,7 +59,7 @@ public class TestCircularlyLinkedList {
 	}
 	
 	@Test
-	public void addLastShiftsList() {
+	public void add_Last_Shifts_List() {
 		testList.addLast(10);
 		assertAll(() -> assertTrue(testList.size() == 11, "Size should be 11 after addition"),
 			() -> assertTrue(testList.last() == 10, "Last element should be 10"),
@@ -68,7 +68,7 @@ public class TestCircularlyLinkedList {
 	}
 	
 	@Test
-	public void zeroGoesToEndAfterRotate() {
+	public void zero_Goes_To_End_After_Rotate() {
 		testList.rotate();
 		assertAll(
 			() -> assertTrue(testList.size() == 10, "Size should not change"),
@@ -79,7 +79,7 @@ public class TestCircularlyLinkedList {
 	}
 	
 	@Test
-	public void removeFirstTakesOutFirstElement() {
+	public void remove_First_Takes_Out_First_Element() {
 		assertAll(
 			() -> assertTrue(emptyList.removeFirst() == null, "Empty list remove should return null"),
 			() -> assertTrue(testList.removeFirst() == 0, "Test list removeFirst should return 0"),

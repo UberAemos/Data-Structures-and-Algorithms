@@ -23,7 +23,7 @@ public class TestDoublyLinkedList {
 	}
 	
 	@Test
-	public void listIsEmptyWithoutElementsAdded() {
+	public void list_Is_Empty_Without_Elements_Added() {
 		assertAll(
 			() -> assertTrue(emptyList.isEmpty(), "isEmpty should return true"),
 			() -> assertTrue(emptyList.size() == 0, "Size should return 0"),
@@ -32,7 +32,7 @@ public class TestDoublyLinkedList {
 	}
 	
 	@Test
-	public void addFirstMakesConnectionsCorrectly() {
+	public void add_First_Makes_Connections_Correctly() {
 		emptyList.addFirst(0);
 		testList.addFirst(-1);
 		assertAll(
@@ -47,7 +47,7 @@ public class TestDoublyLinkedList {
 	}
 	
 	@Test
-	public void addLastMakesConnectionsCorrectly() {
+	public void add_Last_Makes_Connections_Correctly() {
 		emptyList.addLast(0);
 		testList.addLast(10);
 		assertAll(
@@ -62,7 +62,7 @@ public class TestDoublyLinkedList {
 	}
 	
 	@Test
-	public void removeMakesConnectionsCorrectly() {
+	public void remove_Makes_Connections_Correctly() {
 		assertAll(
 			() -> assertTrue(emptyList.removeFirst() == null, "Removing from empty list should return null"),
 			() -> assertTrue(emptyList.toString().equals("{}"), "emptyList should still be empty"),
