@@ -11,11 +11,20 @@ import org.junit.jupiter.api.Test;
 import com.uberaemos.data_structures_algorithms.data_structures.SinglyLinkedList;
 
 public class TestSinglyLinkedList {
-	SinglyLinkedList<Integer> emptyList = new SinglyLinkedList<>();
-	SinglyLinkedList<Integer> testListOfTen = new SinglyLinkedList<>();
+	SinglyLinkedList<Integer> emptyList;
+	SinglyLinkedList<Integer> testListOfFive;
+	SinglyLinkedList<Integer> testListOfTen;
 	
 	@BeforeEach
 	public void init() {
+		emptyList = new SinglyLinkedList<>();
+		testListOfTen = new SinglyLinkedList<>();
+		testListOfFive = new SinglyLinkedList<>();
+		
+		for (int i = 0; i < 5; i++) {
+			testListOfFive.addLast(i);
+		}
+		
 		for (int i = 0; i < 10; i++) {
 			testListOfTen.addLast(i);
 		}
@@ -66,5 +75,13 @@ public class TestSinglyLinkedList {
 		testListOfTen.removeElement(5);
 		assertAll(() -> assertTrue(testListOfTen.toString().equals("{0, 1, 2, 3, 4, 6, 7, 8, 9}"), "Element 5 should be removed"),
 				() -> assertTrue(testListOfTen.size() == 9, "List size should be 9"));
+	}
+	
+	@Test
+	public void twoTestListsCanBeAddedInOrder() {
+		testListOfTen.addList(testListOfFive);
+		assertAll(() -> assertTrue(testListOfTen.size() == 15, "New list size should be 15"),
+				() -> assertTrue(testListOfTen.toString().equals("{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4}"), "Two lists are not added properly")
+			);
 	}
 }

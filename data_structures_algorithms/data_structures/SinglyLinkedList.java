@@ -74,6 +74,14 @@ public class SinglyLinkedList<E> {
 		return e;
 	}
 	
+	public void addList(SinglyLinkedList<E> list) {
+		Node<E> current = list.head;
+		while (current != null) {
+			addLast(current.getElement());
+			current = current.getNext();
+		}
+	}
+	
 	public void removeElement(E e) {
 		if (isEmpty()) return;
 		else if (head.getElement() == e) removeFirst();
